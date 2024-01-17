@@ -1,0 +1,24 @@
+#include <cinttypes>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+uint64_t descendingOrder(uint64_t a)
+{
+    vector<int> v;
+    while (a > 0) {
+        v.push_back(a % 10);
+        a /= 10;
+    }
+    sort(v.begin(), v.end());
+    reverse(v.begin(), v.end());
+    int s = 0;
+    s += v[0];
+    for (int i = 1; i < v.size(); i++) {
+        s *= 10;
+        s += v[i];
+
+    }
+    return s;
+
+}
